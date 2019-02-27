@@ -11,14 +11,45 @@
 
 <body>
   <div id="vue-app">
-    <h1>Conditionals</h1>
+    <h1>Looping through lists</h1>
+    <!-- <ul>
+      <li v-for="character in characters">{{ character }}</li>
+      character는 다른 이름을 지정해줄 수 있음
+    </ul>
+    <ul>
+      <li v-for="ninja in ninjas">{{ ninja.name }} - {{ ninja.age }}</li>
+    </ul> -->
+    <ul>
+      <li v-for="(character, index) in characters">{{ index + 1 }} . {{ character }}</li>
+    </ul>
+    <ul>
+      <li v-for="(ninja, index) in ninjas">{{ index }} . {{ ninja.name }} - {{ ninja.age }}</li>
+    </ul>
+    <div v-for="(ninja, index) in ninjas">
+      <h3>{{ index }} . {{ ninja.name }}</h3>
+      <p>{{ ninja.age }}</p>
+    </div>
+    <template v-for="(ninja, index) in ninjas">
+      <h3>{{ index }} . {{ ninja.name }}</h3>
+      <p>{{ ninja.age }}</p>
+    </template>
+
+    <template v-for="ninja in ninjas">
+      <div v-for="(val, key) in ninja">
+        <p>{{ key }} - {{ val }}</p>
+      </div>
+    </template>
+    <!-- template은 React.Fragment와 유사!! -->
+
+
+    <!-- <h1>Conditionals</h1>
     <button v-on:click="error=!error">Toggle Error</button>
     <button v-on:click="success=!success">Toggle Success</button>
-    <!-- <p v-if="error">There has been an error</p>
-    <p v-else-if="success">Whooo, success :)</p> -->
-    <!-- v-if="true"일 경우 보여준다 / v-if="false"일 경우 보여주지 않는다 -->
+    <p v-if="error">There has been an error</p>
+    <p v-else-if="success">Whooo, success :)</p>
+    v-if="true"일 경우 보여준다 / v-if="false"일 경우 보여주지 않는다
     <p v-show="error">There has been an error</p>
-    <p v-show="success">Whooo, success :)</p>
+    <p v-show="success">Whooo, success :)</p> -->
 
     <!-- <h1>Dynamic CSS</h1>
     <h2>Example 1</h2>
