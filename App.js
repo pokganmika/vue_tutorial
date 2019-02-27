@@ -1,9 +1,12 @@
 new Vue({
   el: '#vue-app',
   data: {
-    age: 20,
-    a: 0,
-    b: 0
+    available: true,
+    nearby: false
+    //-----
+    // age: 20,
+    // a: 0,
+    // b: 0
     //-----
     // name: '',
     // age: ''
@@ -18,6 +21,7 @@ new Vue({
     // websiteTag: '<a href="http://www.thenetninja.co.uk">The Net Ninja Website</a>'
   },
   methods: {
+    //-----
     // addToA: function () {
     //   console.log('addToA');
     //   return this.a + this.age;
@@ -59,13 +63,21 @@ new Vue({
     // }
   },
   computed: {
-    addToA: function () {
-      console.log('addToA');
-      return this.a + this.age;
-    },
-    addToB: function () {
-      console.log('addToB');
-      return this.b + this.age;
+    compClasses: function () {
+      // Example 2
+      return {
+        available: this.available,
+        nearby: this.nearby
+      }
     }
+    //-----
+    // addToA: function () {
+    //   console.log('addToA');
+    //   return this.a + this.age;
+    // },
+    // addToB: function () {
+    //   console.log('addToB');
+    //   return this.b + this.age;
+    // }
   }
 });
