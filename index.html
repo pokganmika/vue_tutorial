@@ -11,13 +11,21 @@
 
 <body>
   <div id="vue-app">
-    <h1>Keyboard Events</h1>
+    <h1>Two Way Data Binding</h1>
+    <label>Name:</label>
+    <input type="text" v-model="name" />
+    <span>{{ name }}</span>
+    <label>Age:</label>
+    <input type="text" v-model="age" />
+    <span>{{ age }}</span>
+
+    <!-- <h1>Keyboard Events</h1>
     <label>Name:</label>
     <input type="text" v-on:keyup.enter="logName" />
-    <!--enter key 입력 시-->
+    enter key 입력 시
     <label>Age:</label>
     <input type="text" v-on:keyup.alt.enter="logAge" />
-    <!--alt + enter key 입력 시-->
+    alt + enter key 입력 시 -->
 
     <!-- <h1>Event Modifiers</h1>
     <button @click.once="add(1)">Add a Year</button>
