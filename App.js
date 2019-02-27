@@ -1,8 +1,12 @@
 new Vue({
   el: '#vue-app',
   data: {
-    name: '',
-    age: ''
+    age: 20,
+    a: 0,
+    b: 0
+    //-----
+    // name: '',
+    // age: ''
     //-----
     // age: 25,
     // x: 0,
@@ -14,12 +18,21 @@ new Vue({
     // websiteTag: '<a href="http://www.thenetninja.co.uk">The Net Ninja Website</a>'
   },
   methods: {
-    logName: function () { 
-      console.log("you entered your name");
-    },
-    logAge: function () { 
-      console.log("you entered your age"); 
-    }
+    // addToA: function () {
+    //   console.log('addToA');
+    //   return this.a + this.age;
+    // },
+    // addToB: function () {
+    //   console.log('addToB');
+    //   return this.b + this.age;
+    // }
+    //-----
+    // logName: function () { 
+    //   console.log("you entered your name");
+    // },
+    // logAge: function () { 
+    //   console.log("you entered your age"); 
+    // }
     //-----
     // add: function (inc) { 
     //   this.age+=inc;
@@ -44,5 +57,15 @@ new Vue({
     // greet: function (time) { 
     //   return `Good ${time} ${this.name}`;
     // }
+  },
+  computed: {
+    addToA: function () {
+      console.log('addToA');
+      return this.a + this.age;
+    },
+    addToB: function () {
+      console.log('addToB');
+      return this.b + this.age;
+    }
   }
 });
