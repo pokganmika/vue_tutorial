@@ -1,6 +1,9 @@
 new Vue({
   el: '#vue-app',
   data: {
+    name: '',
+    age: ''
+    //-----
     // age: 25,
     // x: 0,
     // y: 0
