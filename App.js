@@ -1,8 +1,11 @@
 new Vue({
   el: '#vue-app',
   data: {
-    available: true,
-    nearby: false
+    error: false,
+    success: false
+    //-----
+    // available: true,
+    // nearby: false
     //-----
     // age: 20,
     // a: 0,
@@ -63,13 +66,14 @@ new Vue({
     // }
   },
   computed: {
-    compClasses: function () {
-      // Example 2
-      return {
-        available: this.available,
-        nearby: this.nearby
-      }
-    }
+    //-----
+    // compClasses: function () {
+    //   // Example 2
+    //   return {
+    //     available: this.available,
+    //     nearby: this.nearby
+    //   }
+    // }
     //-----
     // addToA: function () {
     //   console.log('addToA');
