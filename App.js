@@ -1,34 +1,59 @@
-const one = new Vue({
-  el: '#vue-app-one',
-  data: {
-    title: 'Vue App One'
-  },
-  methods: {},
-  computed: {
-    greet: function () { 
-      return 'Hello from app one :)';
+Vue.component('greeting', {
+  // template: '<p>Hey there, I am a re-usable component</p>',
+  template: '<p>Hey there, I am a {{ name }}. <button v-on:click="changeName">Change name</button></p>',
+  data: function () { 
+    return {
+      name: 'Yoshi'
     }
-  }
-})
-
-const two = new Vue({
-  el: '#vue-app-two',
-  data: {
-    title: 'Vue App Two'
   },
   methods: {
-    changeTitle: function () { 
-      one.title = 'Title changed';
-    }
-  },
-  computed: {
-    greet: function () { 
-      return 'Yo dudes, this is app 2 speaking to ya :)';
+    changeName: function () { 
+      this.name = 'Mario';
     }
   }
 })
 
-two.title = 'Chaged from outside';
+new Vue({
+  el: '#vue-app-one'
+})
+
+new Vue({
+  el: '#vue-app-two'
+})
+
+// const one = new Vue({
+//   el: '#vue-app-one',
+//   data: {
+//     title: 'Vue App One'
+//   },
+//   methods: {},
+//   computed: {
+//     greet: function () { 
+//       return 'Hello from app one :)';
+//     }
+//   }
+// })
+
+// const two = new Vue({
+//   el: '#vue-app-two',
+//   data: {
+//     title: 'Vue App Two'
+//   },
+//   methods: {
+//     changeTitle: function () { 
+//       one.title = 'Title changed';
+//     }
+//   },
+//   computed: {
+//     greet: function () { 
+//       return 'Yo dudes, this is app 2 speaking to ya :)';
+//     }
+//   }
+// })
+
+// two.title = 'Chaged from outside';
+
+//-----
 
 // new Vue({
 //   el: '#vue-app',
