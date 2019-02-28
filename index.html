@@ -1,48 +1,65 @@
 <!DOCTYPE html>
 
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <title>VueJS Tutorials</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="https://unpkg.com/vue"></script>
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <title>VueJS Tutorials</title>
-  <link href="style.css" rel="stylesheet" />
-  <script src="https://unpkg.com/vue"></script>
-</head>
+  <body>
+    <div id="vue-app">
+      <h1>Simple Punchbag Game</h1>
+      <!-- bag image -->
+      <div id="bag" v-bind:class="{ burst: ended }"></div>
 
-<body>
-  <div id="vue-app">
-    <h1>Looping through lists</h1>
-    <!-- <ul>
-      <li v-for="character in characters">{{ character }}</li>
-      character는 다른 이름을 지정해줄 수 있음
-    </ul>
-    <ul>
-      <li v-for="ninja in ninjas">{{ ninja.name }} - {{ ninja.age }}</li>
-    </ul> -->
-    <ul>
-      <li v-for="(character, index) in characters">{{ index + 1 }} . {{ character }}</li>
-    </ul>
-    <ul>
-      <li v-for="(ninja, index) in ninjas">{{ index }} . {{ ninja.name }} - {{ ninja.age }}</li>
-    </ul>
-    <div v-for="(ninja, index) in ninjas">
-      <h3>{{ index }} . {{ ninja.name }}</h3>
-      <p>{{ ninja.age }}</p>
-    </div>
-    <template v-for="(ninja, index) in ninjas">
-      <h3>{{ index }} . {{ ninja.name }}</h3>
-      <p>{{ ninja.age }}</p>
-    </template>
-
-    <template v-for="ninja in ninjas">
-      <div v-for="(val, key) in ninja">
-        <p>{{ key }} - {{ val }}</p>
+      <!-- bag health -->
+      <div id="bag-health">
+        <div v-bind:style="{ width: health + '%' }"></div>
       </div>
-    </template>
-    <!-- template은 React.Fragment와 유사!! -->
 
+      <!-- game controls -->
+      <div id="controls">
+        <button v-on:click="punch" v-show="!ended">Punch</button>
+        <button v-on:click="restart">Restart</button>
+      </div>
 
-    <!-- <h1>Conditionals</h1>
+      <!-- <h1>Looping through lists</h1>
+      <ul>
+        <li v-for="character in characters">{{ character }}</li>
+        character는 다른 이름을 지정해줄 수 있음
+      </ul>
+      <ul>
+        <li v-for="ninja in ninjas">{{ ninja.name }} - {{ ninja.age }}</li>
+      </ul>
+      <ul>
+        <li v-for="(character, index) in characters">
+          {{ index + 1 }} . {{ character }}
+        </li>
+      </ul>
+      <ul>
+        <li v-for="(ninja, index) in ninjas">
+          {{ index }} . {{ ninja.name }} - {{ ninja.age }}
+        </li>
+      </ul>
+      <div v-for="(ninja, index) in ninjas">
+        <h3>{{ index }} . {{ ninja.name }}</h3>
+        <p>{{ ninja.age }}</p>
+      </div>
+      <template v-for="(ninja, index) in ninjas">
+        <h3>{{ index }} . {{ ninja.name }}</h3>
+        <p>{{ ninja.age }}</p>
+      </template>
+
+      <template v-for="ninja in ninjas">
+        <div v-for="(val, key) in ninja">
+          <p>{{ key }} - {{ val }}</p>
+        </div>
+      </template>
+      template은 React.Fragment와 유사!! -->
+
+      <!-- <h1>Conditionals</h1>
     <button v-on:click="error=!error">Toggle Error</button>
     <button v-on:click="success=!success">Toggle Success</button>
     <p v-if="error">There has been an error</p>
@@ -51,7 +68,7 @@
     <p v-show="error">There has been an error</p>
     <p v-show="success">Whooo, success :)</p> -->
 
-    <!-- <h1>Dynamic CSS</h1>
+      <!-- <h1>Dynamic CSS</h1>
     <h2>Example 1</h2>
     <div v-bind:class="{red:true, blue:true}"></div>
     <div v-on:click="available=!available" v-bind:class="{available: available}">
@@ -64,7 +81,7 @@
       <span>Ryu</span>
     </div> -->
 
-    <!-- <h1>Computed Properties</h1>
+      <!-- <h1>Computed Properties</h1>
     <button v-on:click="a++">Add to A</button>
     <button v-on:click="b++">Add to B</button>
     <p>A - {{ a }}</p>
@@ -74,7 +91,7 @@
     <p>Age + A = {{ addToA }}</p>
     <p>Age + B = {{ addToB }}</p> -->
 
-    <!-- <h1>Two Way Data Binding</h1>
+      <!-- <h1>Two Way Data Binding</h1>
     <label>Name:</label>
     <input type="text" v-model="name" />
     <span>{{ name }}</span>
@@ -82,7 +99,7 @@
     <input type="text" v-model="age" />
     <span>{{ age }}</span> -->
 
-    <!-- <h1>Keyboard Events</h1>
+      <!-- <h1>Keyboard Events</h1>
     <label>Name:</label>
     <input type="text" v-on:keyup.enter="logName" />
     enter key 입력 시
@@ -90,7 +107,7 @@
     <input type="text" v-on:keyup.alt.enter="logAge" />
     alt + enter key 입력 시 -->
 
-    <!-- <h1>Event Modifiers</h1>
+      <!-- <h1>Event Modifiers</h1>
     <button @click.once="add(1)">Add a Year</button>
     <button v-on:click="subtract(1)">Subtract a Year</button>
     <button @dblclick="add(10)">Add 10 Years</button>
@@ -99,7 +116,7 @@
     <div id="canvas" v-on:mousemove="updateXY">{{ x }}, {{ y }}</div>
     <a v-on:click.prevent="click" href="https://www.google.com">Google</a> -->
 
-    <!-- <h1>Event</h1>
+      <!-- <h1>Event</h1>
     <button v-on:click="age++">Add a Year</button>
     <button v-on:click="age--">Subtract a Year</button>
     <button v-on:click="add">Add a Year</button>
@@ -111,17 +128,16 @@
     <p>My age is {{ age }}</p>
     <div id="canvas" v-on:mousemove="updateXY">{{ x }}, {{ y }}</div> -->
 
-    <!-- <h1>Data Binding</h1>
+      <!-- <h1>Data Binding</h1>
     <a v-bind:href="website">The Net Ninja</a>
     <input type="text" v-bind:value="name" />
     <p v-html="websiteTag"></p> -->
 
-    <!-- <h1>Data & Method</h1>
+      <!-- <h1>Data & Method</h1>
     <h2>{{ greet('night') }}</h2>
     <p>Name : {{ name }}</p>
     <p>Job : {{ job }}</p> -->
-  </div>
-  <script src="App.js"></script>
-</body>
-
+    </div>
+    <script src="App.js"></script>
+  </body>
 </html>
