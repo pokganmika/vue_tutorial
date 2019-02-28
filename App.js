@@ -1,13 +1,16 @@
 new Vue({
   el: '#vue-app',
   data: {
-    name: 'jack',
-    characters: ['Mario', 'Luigi', 'Yoshi', 'Bowser'],
-    ninjas:[
-      {name: 'Ryu', age: 25},
-      {name: 'Yoshi', age: 35},
-      {name: 'Ken', age: 55}
-    ]
+    health: 100,
+    ended: false
+    //-----
+    // name: 'jack',
+    // characters: ['Mario', 'Luigi', 'Yoshi', 'Bowser'],
+    // ninjas:[
+    //   {name: 'Ryu', age: 25},
+    //   {name: 'Yoshi', age: 35},
+    //   {name: 'Ken', age: 55}
+    // ]
     //-----
     // error: false,
     // success: false
@@ -32,6 +35,18 @@ new Vue({
     // websiteTag: '<a href="http://www.thenetninja.co.uk">The Net Ninja Website</a>'
   },
   methods: {
+    punch: function () { 
+      console.log(this.health);
+      this.health -= 10;
+      if (this.health <= 0) { 
+        this.ended = true;
+      }
+    },
+    restart: function () { 
+      console.log(this.health);
+      this.health = 100;
+      this.ended = false;
+    }
     //-----
     // addToA: function () {
     //   console.log('addToA');
