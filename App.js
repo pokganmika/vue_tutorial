@@ -1,25 +1,47 @@
-Vue.component('greeting', {
-  // template: '<p>Hey there, I am a re-usable component</p>',
-  template: '<p>Hey there, I am a {{ name }}. <button v-on:click="changeName">Change name</button></p>',
-  data: function () { 
-    return {
-      name: 'Yoshi'
-    }
+new Vue({
+  el: '#vue-app',
+  data: {
+    output: 'Your fav food',
+    test: ''
   },
   methods: {
-    changeName: function () { 
-      this.name = 'Mario';
+    readRefsValue: function () { 
+      console.log(this.$refs.input.value); 
+      this.output = this.$refs.input.value;
+    },
+    readRefsHtml: function () { 
+      console.log(this.$refs.test.innerText);
+      this.test = this.$refs.test.innerText;
     }
-  }
+  },
+  computed: {}
 })
+//-----
 
-new Vue({
-  el: '#vue-app-one'
-})
+// Vue.component('greeting', {
+//   // template: '<p>Hey there, I am a re-usable component</p>',
+//   template: '<p>Hey there, I am a {{ name }}. <button v-on:click="changeName">Change name</button></p>',
+//   data: function () { 
+//     return {
+//       name: 'Yoshi'
+//     }
+//   },
+//   methods: {
+//     changeName: function () { 
+//       this.name = 'Mario';
+//     }
+//   }
+// })
 
-new Vue({
-  el: '#vue-app-two'
-})
+// new Vue({
+//   el: '#vue-app-one'
+// })
+
+// new Vue({
+//   el: '#vue-app-two'
+// })
+
+//-----
 
 // const one = new Vue({
 //   el: '#vue-app-one',
